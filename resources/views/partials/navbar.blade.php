@@ -13,6 +13,9 @@
           <a class="nav-link {{($title === "Perpustakaan")?'active' : ''}}" href="/perpustakaan">Perpustakaan</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link {{($title === "Koleksi")?'active' : ''}}" href="/koleksi">Koleksi</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link {{($title === "About")?'active' : ''}}" href="/about">About</a>
         </li>
       </ul>

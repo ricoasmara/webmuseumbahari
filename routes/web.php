@@ -23,11 +23,13 @@ Route::get('/perpustakaan', function () {
     $perpustakaan=[
         [
             "title" =>"Judul Buku",
+            "slug"=>"judul-perpustakana-pertama",
             "author"=> "Ricoasmara",
             "body" => "loremasdasdjowdhiafhodsafhdisahfdsiaufhdsifhsduaifhdsfffffffffffffffffffffffusdhfsdiuhfafhawepfisdfbnsaifbusdadasdasdsadsadsaddfgfhjgjhkjlkjl;i;hjfghgfgdfssdfds"
         ],
         [
             "title" =>"Judul Buku kedua",
+            "slug"=>"judul-perpustakana-kedua",
             "author"=> "tasya",
             "body" => "asdwqdasytasy aasdjoiowajdbfsdajhbfsdbfjsadhbfewysftgwefosudofpuisouf"
         ],
@@ -45,6 +47,12 @@ Route::get('/about', function () {
         "title"=>"About",
         "Nomer"=>"0857****",
         "Email"=>"museumB@gmail.com"
+    ]);
+});
+
+Route::get('/koleksi', function () {
+    return view('koleksi',[
+    "title"=> "Koleksi"
     ]);
 });
 
