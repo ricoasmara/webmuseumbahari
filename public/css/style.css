@@ -1,3 +1,12 @@
-body{
+body {
     background-color: rgb(229, 229, 229);
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    background-color: #e2edff;
+}
+.hero {
+    color: aqua;
+    background-color: blue;
 }

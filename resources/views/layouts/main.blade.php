@@ -12,7 +12,7 @@
   </head>
   <body>
  @include('partials.navbar');
-    <div class="container mt-4">
+    <div class="container-fluid mt-2">
     @yield('container')
     </div>
 
