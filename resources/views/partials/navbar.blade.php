@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Museum Bahari</a>
+    <a class="navbar-brand" href="/">Museum <span>Bahari</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,3 +23,11 @@
     </div>
   </div>
 </nav>
+<!-- fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+
+<!-- mycss -->
+<link rel="stylesheet" href="css/style.css"
+
