@@ -53,10 +53,11 @@ body {
 .navbar .navbar-nav a:hover::after {
     transform: scaleX(0.3);
 }
+/* Jumbotron */
 .jumbotron {
-    padding: 2rem 1rem;
     background-color: #e2edff;
     position: relative;
+    padding-top: 5rem;
 }
 
 .jumbotron ::after {

@@ -30,7 +30,7 @@ Route::get('/perpustakaan', function () {
         [
             "title" =>"Judul Buku kedua",
             "slug"=>"judul-perpustakana-kedua",
-            "author"=> "tasya",
+            "author"=> "ramdan",
             "body" => "asdwqdasytasy aasdjoiowajdbfsdajhbfsdbfjsadhbfewysftgwefosudofpuisouf"
         ],
     ];
