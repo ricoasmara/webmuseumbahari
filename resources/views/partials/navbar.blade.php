@@ -13,9 +13,7 @@
         <li class="nav-item">
           <a class="nav-link {{($title === "Perpustakaan")?'active' : ''}}" href="/perpustakaan">Perpustakaan</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link {{($title === "Koleksi")?'active' : ''}}" href="/koleksi">Koleksi</a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link {{($title === "About")?'active' : ''}}" href="/about">About</a>
         </li>
@@ -23,11 +21,13 @@
     </div>
   </div>
 </nav>
+
+
 <!-- fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
 
 <!-- mycss -->
-<link rel="stylesheet" href="css/style.css"
+<link rel="stylesheet" href="css/home.css"
 

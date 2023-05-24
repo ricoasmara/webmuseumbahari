@@ -3,6 +3,7 @@
 @section('container')
 
 <!-- jumbotron -->
+<!--  
 <section class="jumbotron" >
     <img src="img/museumbahari.jpg" class="rounded mx-auto d-block img-thumbnail" alt="museumbahari" width="500">
  <main class="content">
@@ -17,10 +18,48 @@ Museum ini menyimpan koleksi-koleksi berupa perahu tradisional dengan aneka bent
   <path fill="#a2d9ff" fill-opacity="1" d="M0,96L34.3,122.7C68.6,149,137,203,206,224C274.3,245,343,235,411,213.3C480,192,549,160,617,176C685.7,192,754,256,823,272C891.4,288,960,256,1029,240C1097.1,224,1166,224,1234,208C1302.9,192,1371,160,1406,144L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
 </svg> 
 </section>
+-->
+<div class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-6 col-xs-12">
+            <div class="hero-text">
+              <h2>Sejarah Museum Bahari</h2>
+              <h6>Museum Bahari adalah museum yang menyimpan koleksi yang berhubungan dengan kebaharian dan kenelayanan bangsa Indonesia dari Sabang hingga Merauke. Museum ini berada di bawah pengawasan dari Dinas Kebudayaan Permuseuman Provinsi Daerah Khusus Ibukota Jakarta....</h6>
+              <a href="#" class="btn btn-lg btn-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- swiper -->
+    <div id="carouselExampleControlsNoTouching" class="carousel carousel-dark slide" data-bs-touch="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/museumbahari.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/instagram.png" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <!-- akhir -->
 <!-- akhiir -->
 
 <!-- mycss -->
-<link rel="stylesheet" href="css/home.css"
+
 @endsection
 
 

@@ -11,5 +11,6 @@
 <p>{{$post["body"]}}</p>
 </article>
 @endforeach
+<link rel="stylesheet" href="css/home.css"
 @endsection
 

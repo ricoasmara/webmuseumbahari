@@ -1,5 +1,5 @@
 :root {
-    --primary: #fe8f21;
+    --primary: #e47200;
     --bg: #ffffff;
 }
 
@@ -15,7 +15,6 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: var(--bg);
-    min-height: 2000px;
 }
 /* navbar */
 .navbar {
@@ -23,7 +22,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0.3rem 1%;
-    background-color: rgba(97, 155, 250, 0.8);
+    background-color: rgb(3, 24, 133);
     border-bottom: 1px solid #010b1b;
     position: fixed;
     top: 0;
@@ -54,22 +53,80 @@ body {
     transform: scaleX(0.3);
 }
 /* Jumbotron */
-.jumbotron {
-    background-color: #e2edff;
+
+.hero {
+    background: url(../img/museumbaharipintu.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #fff;
+    padding-bottom: 80px;
+}
+.hero .hero-text {
+    margin-top: 35%;
+    margin-bottom: 20%;
+}
+.hero .row {
     position: relative;
-    padding-top: 5rem;
+    margin-left: 50%;
+}
+/* swiper */
+.carousel {
+    padding: 5em;
 }
 
-.jumbotron ::after {
+/* Footer */
+.footer {
+    background-color: #37324b;
+    padding: 5em;
+}
+.footer h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 3em;
+    color: #a3a1ac;
+    margin-bottom: 2em;
+}
+.footer h1 span {
+    color: #fff;
+    font-weight: 300;
+}
+.footer h1:after {
     content: "";
+    width: 80px;
+    height: 4px;
+    background-color: #37a7ff;
     display: block;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    left: 50%;
+    transform: translate(-40px, 10px);
 }
-.jumbotron .content {
-    padding: 0.5rem 5%;
-    max-width: 45rem;
+.footer ul.social-links li a {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+.footer ul.social-links li a img {
+    max-height: 40px;
+}
+
+/* Sub-footer */
+.sub-footer {
+    background-color: #322e45;
+    padding: 2em;
+    color: #a3a1ac;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+.sub-footer p {
+    margin: 0;
+    font-size: 1.2em;
+}
+.sub-footer p a {
+    color: #fff;
+}
+.sub-footer p a:hover {
+    opacity: 0.8;
 }
 /*media Queries*/
 
