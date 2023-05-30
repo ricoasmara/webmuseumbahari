@@ -1,0 +1,53 @@
+:root {
+    --primary: #e47200;
+    --bg: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg);
+}
+/* login */
+.containerbtn {
+    padding-top: 6%;
+    background-color: #37324b;
+}
+
+.containerbtn .btn {
+}
+
+.form-sign {
+    padding-top: 20%;
+}
+.form-sign .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-sign input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-sign input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+/* register */
+.form-registrasi {
+    padding-top: 20%;
+}
+.form-registrasi input {
+    border-radius: 0;
+    margin-bottom: -1px;
+}

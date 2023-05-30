@@ -21,9 +21,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.3rem 1%;
-    background-color: rgb(3, 24, 133);
-    border-bottom: 1px solid #010b1b;
+    padding: 0.1rem;
+    background-color: hwb(224 69% 4%);
+    border-bottom: 1px solid #011b06;
     position: fixed;
     top: 0;
     left: 0;
@@ -31,13 +31,14 @@ body {
     z-index: 9999;
 }
 .navbar .navbar-brand {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 100;
     color: rgb(255, 255, 255);
     font-style: italic;
 }
-.navbar .navbar-brand span {
-    color: var(--primary);
+.navbar .navbar-brand img {
+    border-radius: 100%;
+    width: 80px;
 }
 
 .navbar .navbar-nav a::after {
@@ -143,7 +144,7 @@ body {
     }
 }
 /* Phone */
-@media (max-widht: 450px) {
+@media screen and (max-widht: 450px) {
     html {
         font-size: 55%;
     }
