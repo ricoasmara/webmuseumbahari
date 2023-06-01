@@ -17,6 +17,9 @@ body {
     background-color: var(--bg);
 }
 /* login */
+.alert {
+    padding-top: 20%;
+}
 .containerbtn {
     padding-top: 6%;
     background-color: #37324b;
