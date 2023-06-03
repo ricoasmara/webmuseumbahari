@@ -10,7 +10,8 @@ class LoginController extends Controller
 public function index(){
     return view('login.index',[
         
-            'title'=> 'Login'
+            'title'=> 'Login',
+            'active'=> 'login'
         
     ]);
 }
@@ -27,5 +28,13 @@ public function index(){
 
    return back()->with('loginError','Login Failed!');
     
+ }
+ public function logout(){
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/');
+    
+
  }
 }
