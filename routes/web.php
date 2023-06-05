@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,57 +18,57 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home',[
-    "title"=> "Home"
+    return view('home', [
+        "title" => "Home"
     ]);
 });
 
 Route::get('/perpustakaan', function () {
-    $perpustakaan=[
+    $perpustakaan = [
         [
-            "title" =>"Judul Buku",
-            "slug"=>"judul-perpustakana-pertama",
-            "author"=> "Ricoasmara",
+            "title" => "Judul Buku",
+            "slug" => "judul-perpustakana-pertama",
+            "author" => "Ricoasmara",
             "body" => "loremasdasdjowdhiafhodsafhdisahfdsiaufhdsifhsduaifhdsfffffffffffffffffffffffusdhfsdiuhfafhawepfisdfbnsaifbusdadasdasdsadsadsaddfgfhjgjhkjlkjl;i;hjfghgfgdfssdfds"
         ],
         [
-            "title" =>"Judul Buku kedua",
-            "slug"=>"judul-perpustakana-kedua",
-            "author"=> "ramdan",
+            "title" => "Judul Buku kedua",
+            "slug" => "judul-perpustakana-kedua",
+            "author" => "ramdan",
             "body" => "asdwqdasytasy aasdjoiowajdbfsdajhbfsdbfjsadhbfewysftgwefosudofpuisouf"
         ],
     ];
-    return view('perpustakaan',[
-        "title"=>"Perpustakaan",
-        "post"=>$perpustakaan
+    return view('perpustakaan', [
+        "title" => "Perpustakaan",
+        "post" => $perpustakaan
     ]);
 });
 
 
 
 Route::get('/about', function () {
-    return view('about',[
-        "title"=>"About",
-        "Nomer"=>"0857****",
-        "Email"=>"museumB@gmail.com"
+    return view('about', [
+        "title" => "About",
+        "Nomer" => "0857****",
+        "Email" => "museumB@gmail.com"
     ]);
 });
 
 Route::get('/koleksi', function () {
-    return view('koleksi',[
-    "title"=> "Koleksi"
+    return view('koleksi', [
+        "title" => "Koleksi"
     ]);
 });
 
-Route::get('/login',[LoginController::class,'index'])->name('login')->middleware('guest');
-Route::post('/login',[LoginController::class,'authenticate']);
-Route::post('/logout',[LoginController::class,'logout']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register',[RegisterController::class,'index'])->middleware('guest');
-Route::post('/register',[RegisterController::class,'store']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');
 
-
-
-
+Route::resource('/dashboard/posts', DashboardPostsController::class)->middleware('auth');

@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="css/perpustakaan.css">
     <link rel="stylesheet" href="css/home.css">
     
-    
-  
-    
+
     <title>Museum Bahari | {{$title}}</title>
   </head>
   <body>
