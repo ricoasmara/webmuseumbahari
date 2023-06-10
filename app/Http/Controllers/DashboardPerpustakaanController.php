@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Perpustakaan;
 use Illuminate\Http\Request;
 
-class DashboardPostsController extends Controller
+class DashboardPerpustakaanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DashboardPostsController extends Controller
     public function index()
     {
         return view('dashboard.posts.index', [
-            'posts' => Post::all()
+            "perpustakaan" => Perpustakaan::all()
         ]);
     }
 
@@ -43,21 +43,23 @@ class DashboardPostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Perpustakaan $detail)
     {
-        //
+        return view('dashboard.posts.show', [
+            'detail' => $detail
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Perpustakaan $perpustakaan)
     {
         //
     }
@@ -66,10 +68,10 @@ class DashboardPostsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Perpustakaan $perpustakaan)
     {
         //
     }
@@ -77,10 +79,10 @@ class DashboardPostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Perpustakaan $perpustakaan)
     {
         //
     }

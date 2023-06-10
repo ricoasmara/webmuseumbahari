@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- My css -->
-    <link rel="stylesheet" href="css/perpustakaan.css">
+    
     <link rel="stylesheet" href="css/home.css">
     
 
     <title>Museum Bahari | {{$title}}</title>
   </head>
   <body>
- @include('partials.navbar');
+ @include('partials.navbar')
     <div class="container mt-2">
     @yield('container')
     </div>
