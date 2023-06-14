@@ -26,7 +26,7 @@ class DashboardPerpustakaanController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.posts.create');
     }
 
     /**
@@ -37,7 +37,15 @@ class DashboardPerpustakaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'judul_buku' => 'required|max:255',
+            'call_number' => 'required|max:50',
+            'rak' => 'required|max:255',
+            'jumlah' => 'required',
+            'isbn' => 'required'
+        ]);
+        Perpustakaan::create($validateData);
+        return redirect('/dashboard/posts')->with('success', 'New Book has been added');
     }
 
     /**
@@ -46,11 +54,17 @@ class DashboardPerpustakaanController extends Controller
      * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function show(Perpustakaan $detail)
+    public function show($id)
     {
-        return view('dashboard.posts.show', [
-            'detail' => $detail
-        ]);
+        $detail = array(
+            'title' => "posttest",
+            'detail' => Perpustakaan::find($id)
+        );
+        return view('dashboard.posts.show')->with($detail);
+        // return view('dashboard.posts.show', [
+        //     'title' => 'Singglepost',
+        //     'detail' => $perpustakaan->id
+        // ]);
     }
 
     /**
@@ -59,9 +73,13 @@ class DashboardPerpustakaanController extends Controller
      * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Perpustakaan $perpustakaan)
+    public function edit($id)
     {
-        //
+        $detail = array(
+            'title' => "edit",
+            'perpustakaan' => Perpustakaan::find($id)
+        );
+        return view('dashboard.posts.edit')->with($detail);
     }
 
     /**
@@ -71,9 +89,33 @@ class DashboardPerpustakaanController extends Controller
      * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Perpustakaan $perpustakaan)
+    public function update(Request $request, $id)
     {
-        //
+        // $validateData = $request->validate([
+        //     'judul_buku' => 'required|max:255',
+        //     'call_number' => 'required|max:50',
+        //     'rak' => 'required|max:255',
+        //     'jumlah' => 'required',
+        //     'isbn' => 'required'
+        // ]);
+        // Perpustakaan::where('id', $perpustakaan->id)
+        //     ->update($validateData);
+
+        $this->validate($request, [
+            'judul_buku' => 'required|max:255',
+            'call_number' => 'required|max:50',
+            'rak' => 'required|max:255',
+            'jumlah' => 'required',
+            'isbn' => 'required'
+        ]);
+        $perpustakaan = Perpustakaan::find($id);
+        $perpustakaan->judul_buku = $request->input('judul_buku');
+        $perpustakaan->call_number = $request->input('call_number');
+        $perpustakaan->rak = $request->input('rak');
+        $perpustakaan->jumlah = $request->input('jumlah');
+        $perpustakaan->isbn = $request->input('isbn');
+        $perpustakaan->save();
+        return redirect('/dashboard/posts')->with('success', 'Book has been updated!');
     }
 
     /**
@@ -82,8 +124,11 @@ class DashboardPerpustakaanController extends Controller
      * @param  \App\Models\Perpustakaan  $perpustakaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Perpustakaan $perpustakaan)
+    public function destroy($id)
     {
-        //
+        $detail = Perpustakaan::findOrFail($id);
+        $detail->delete();
+        // Perpustakaan::destroy($perpustakaan->id);
+        return redirect('/dashboard/posts')->with('success', 'Book has been deleted!');
     }
 }

@@ -28,54 +28,10 @@ Route::get('/', function () {
 Route::get('/perpustakaan', [PerpustakaanController::class, 'index']);
 
 
-// Route::get('/perpustakaan', function () {
-//     $perpustakaan_book = [
-//         [
-//             "title" => "Judul Post Pertama",
-//             "slug" => "judul-post-pertama",
-//             "penulis" => "Ricoasmara",
-//             "body" => "dsadyhauihdwuhadhashdkwadhauksdhukwadhasudhawuhdukahsdhasukdhwuadhkashdjhjskdhwusudhuhdhdhdhhdhd"
-//         ],
-//         [
-//             "title" => "Judul Post Kedua Bro",
-//             "slug" => "judul-post-kedua-bro",
-//             "penulis" => "ayam kukuruyuk",
-//             "body" => "12312312312icidees asdhjawdhuaishdui ashdaidhuashd  huiashduiahdwuia hhajdkjawdhkjah asjklhdjakhd23wkjdhasuhdiashdiuasdhuiasdhiashdaiusdhasiuh"
-//         ]
-//     ];
-//     return view('perpustakaan', [
-//         "title" => "perpustakaan",
-//         "perpustakaan" => $perpustakaan_book
-//     ]);
-// });
+
 
 Route::get('/perpustakaan/{detail:id}', [PerpustakaanController::class, 'show']);
-// Route::get('perpustakaan/{slug}', function ($slug) {
-//     $perpustakaan_book = [
-//         [
-//             "title" => "Judul Post Pertama",
-//             "slug" => "judul-post-pertama",
-//             "penulis" => "Ricoasmara",
-//             "body" => "dsadyhauihdwuhadhashdkwadhauksdhukwadhasudhawuhdukahsdhasukdhwuadhkashdjhjskdhwusudhuhdhdhdhhdhd"
-//         ],
-//         [
-//             "title" => "Judul Post Kedua Bro",
-//             "slug" => "judul-post-kedua-bro",
-//             "penulis" => "ayam kukuruyuk",
-//             "body" => "12312312312icidees asdhjawdhuaishdui ashdaidhuashd  huiashduiahdwuia hhajdkjawdhkjah asjklhdjakhd23wkjdhasuhdiashdiuasdhuiasdhiashdaiusdhasiuh"
-//         ]
-//     ];
-//     $new_detail = [];
-//     foreach ($perpustakaan_book as $detail) {
-//         if ($detail["slug"] === $slug) {
-//             $new_detail = $detail;
-//         }
-//     }
-//     return view('detailbuku', [
-//         "title" => "Single Post",
-//         "perpustakaan" => $new_detail
-//     ]);
-// });
+
 
 Route::get('/about', function () {
     return view('about', [

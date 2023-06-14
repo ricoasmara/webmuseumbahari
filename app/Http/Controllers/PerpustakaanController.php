@@ -23,4 +23,9 @@ class PerpustakaanController extends Controller
         ]);
 
     }
+    public function destroy(Perpustakaan $detail)
+    {
+        Perpustakaan::destroy($detail->id);
+        return redirect('/dashboard/posts')->with('success', 'Book has been deleted');
+    }
 }
