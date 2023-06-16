@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->text('rak');
             $table->text('jumlah');
             $table->text('isbn');
+            $table->string('image')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

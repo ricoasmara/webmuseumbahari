@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Perpustakaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPerpustakaanController extends Controller
 {
@@ -14,9 +15,11 @@ class DashboardPerpustakaanController extends Controller
      */
     public function index()
     {
-        return view('dashboard.posts.index', [
-            "perpustakaan" => Perpustakaan::all()
-        ]);
+        $perpustakaan = Perpustakaan::all();
+        return view('dashboard.posts.index', compact('perpustakaan'));
+        // return view('dashboard.posts.index', [
+        //     "perpustakaan" => Perpustakaan::all()
+        // ]);
     }
 
     /**
@@ -26,7 +29,9 @@ class DashboardPerpustakaanController extends Controller
      */
     public function create()
     {
-        return view('dashboard.posts.create');
+        return view('dashboard.posts.create', [
+            "perpustakaan" => Perpustakaan::all()
+        ]);
     }
 
     /**
@@ -37,13 +42,18 @@ class DashboardPerpustakaanController extends Controller
      */
     public function store(Request $request)
     {
+
         $validateData = $request->validate([
             'judul_buku' => 'required|max:255',
             'call_number' => 'required|max:50',
             'rak' => 'required|max:255',
             'jumlah' => 'required',
-            'isbn' => 'required'
+            'isbn' => 'required|unique:perpustakaans',
+            'image' => 'image|file|max:1024'
         ]);
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('post-images');
+        }
         Perpustakaan::create($validateData);
         return redirect('/dashboard/posts')->with('success', 'New Book has been added');
     }
@@ -77,7 +87,7 @@ class DashboardPerpustakaanController extends Controller
     {
         $detail = array(
             'title' => "edit",
-            'perpustakaan' => Perpustakaan::find($id)
+            'detail' => Perpustakaan::find($id)
         );
         return view('dashboard.posts.edit')->with($detail);
     }
@@ -91,29 +101,31 @@ class DashboardPerpustakaanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $validateData = $request->validate([
-        //     'judul_buku' => 'required|max:255',
-        //     'call_number' => 'required|max:50',
-        //     'rak' => 'required|max:255',
-        //     'jumlah' => 'required',
-        //     'isbn' => 'required'
-        // ]);
-        // Perpustakaan::where('id', $perpustakaan->id)
-        //     ->update($validateData);
+        $perpustakaan = Perpustakaan::find($id);
 
         $this->validate($request, [
             'judul_buku' => 'required|max:255',
             'call_number' => 'required|max:50',
             'rak' => 'required|max:255',
             'jumlah' => 'required',
-            'isbn' => 'required'
+            'isbn' => 'required',
+            'image' => 'image|file|max:1024'
+
         ]);
-        $perpustakaan = Perpustakaan::find($id);
         $perpustakaan->judul_buku = $request->input('judul_buku');
         $perpustakaan->call_number = $request->input('call_number');
         $perpustakaan->rak = $request->input('rak');
         $perpustakaan->jumlah = $request->input('jumlah');
         $perpustakaan->isbn = $request->input('isbn');
+        // $perpustakaan->image = $request->input('image');
+        if ($request->hasFile('image')) {
+            // Menghapus gambar lama jika ada
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $path = $request->file('image')->store('post-images');
+            $perpustakaan->image = $path;
+        }
         $perpustakaan->save();
         return redirect('/dashboard/posts')->with('success', 'Book has been updated!');
     }
@@ -126,9 +138,16 @@ class DashboardPerpustakaanController extends Controller
      */
     public function destroy($id)
     {
+
         $detail = Perpustakaan::findOrFail($id);
+        // if ($detail->image) {
+        //     Storage::delete($detail->oldImage);
+        // }
+        if (Storage::disk('public')->exists($detail->image)) {
+            Storage::disk('public')->delete($detail->image);
+        }
+
         $detail->delete();
-        // Perpustakaan::destroy($perpustakaan->id);
         return redirect('/dashboard/posts')->with('success', 'Book has been deleted!');
     }
 }
