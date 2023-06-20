@@ -10,6 +10,16 @@
   @endif
       <div class="table-responsive col-lg-12">
       <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Data </a>
+      <div class="row justify-content-center mb-3">
+<div class="col-md-6">
+<form action="/dashboard/posts" >
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Search Data Book.." name="searchtable" value="{{ request('searchtable') }}" >
+  <button class="btn btn-inline-info" type="submit"><span data-feather="search"></button>
+</div>
+</form>
+</div>
+</div>
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -23,6 +33,8 @@
             </tr>
           </thead>
           <tbody>
+          @if($perpustakaan->count())
+          
           @foreach($perpustakaan as $detail)
             <tr>
               <td>{{ $loop->iteration }}</td>
@@ -45,4 +57,7 @@
           </tbody>
         </table>
       </div>
+      @else
+          <h1>Data Not Found!</h1>
+          @endif
 @endsection

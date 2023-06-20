@@ -9,9 +9,13 @@ class PerpustakaanController extends Controller
 {
     public function index()
     {
+        $perpustakaan = Perpustakaan::latest();
+        if (request('search')) {
+            $perpustakaan->where('judul_buku', 'like', '%' . request('search') . '%');
+        }
         return view('perpustakaan', [
             "title" => "Perpustakaan",
-            "perpustakaan" => Perpustakaan::all()
+            "perpustakaan" => $perpustakaan->get()
 
         ]);
     }

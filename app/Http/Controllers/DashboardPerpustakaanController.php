@@ -15,11 +15,16 @@ class DashboardPerpustakaanController extends Controller
      */
     public function index()
     {
-        $perpustakaan = Perpustakaan::all();
-        return view('dashboard.posts.index', compact('perpustakaan'));
-        // return view('dashboard.posts.index', [
-        //     "perpustakaan" => Perpustakaan::all()
-        // ]);
+        $perpustakaan = Perpustakaan::orderBy('judul_buku', 'asc');
+        if (request('searchtable')) {
+            $perpustakaan->where('judul_buku', 'like', '%' . request('searchtable') . '%')
+                ->orWhere('rak', 'like', '%' . request('searchtable') . '%');
+        }
+        // $perpustakaan = Perpustakaan::all();
+        // return view('dashboard.posts.index', compact('perpustakaan'));
+        return view('dashboard.posts.index', [
+            "perpustakaan" => $perpustakaan->get()
+        ]);
     }
 
     /**
@@ -109,7 +114,7 @@ class DashboardPerpustakaanController extends Controller
             'rak' => 'required|max:255',
             'jumlah' => 'required',
             'isbn' => 'required',
-            'image' => 'image|file|max:1024'
+            'image' => 'image|file|max:2048'
 
         ]);
         $perpustakaan->judul_buku = $request->input('judul_buku');
