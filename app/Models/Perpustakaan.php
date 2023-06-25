@@ -22,4 +22,12 @@ class Perpustakaan extends Model
     {
         return 'id';
     }
+
+    public function scopeFilter($query)
+    {
+        if (request('searchtable')) {
+            return $query->where('judul_buku', 'like', '%' . request('searchtable') . '%')
+                ->orWhere('rak', 'like', '%' . request('searchtable') . '%');
+        }
+    }
 }

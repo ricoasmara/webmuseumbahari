@@ -16,14 +16,13 @@ class DashboardPerpustakaanController extends Controller
     public function index()
     {
         $perpustakaan = Perpustakaan::orderBy('judul_buku', 'asc');
-        if (request('searchtable')) {
-            $perpustakaan->where('judul_buku', 'like', '%' . request('searchtable') . '%')
-                ->orWhere('rak', 'like', '%' . request('searchtable') . '%');
-        }
-        // $perpustakaan = Perpustakaan::all();
-        // return view('dashboard.posts.index', compact('perpustakaan'));
+        // if (request('searchtable')) {
+        //     $perpustakaan->where('judul_buku', 'like', '%' . request('searchtable') . '%')
+        //         ->orWhere('rak', 'like', '%' . request('searchtable') . '%');
+        // }
+
         return view('dashboard.posts.index', [
-            "perpustakaan" => $perpustakaan->get()
+            "perpustakaan" => $perpustakaan->filter()->get()
         ]);
     }
 
